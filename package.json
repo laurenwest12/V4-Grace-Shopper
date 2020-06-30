@@ -8,6 +8,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
+    "node-sass": "^4.14.1",
     "nodemailer": "^6.1.1",
     "nodemailer-express-handlebars": "^3.0.0",
     "pg": "^7.10.0",
@@ -42,11 +43,12 @@
     "webpack-cli": "^3.3.1"
   },
   "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w",
     "start": "node server",
     "postinstall": "npm run webpack",
     "webpack": "webpack",
     "webpack:dev": "npm run webpack -- --mode=development --watch",
-    "start:dev": "npm run webpack:dev & nodemon server --ignore client/ --ignore dist/ --ignore tests/",
+    "start:dev": "npm run webpack:dev & nodemon server & npm run watch:sass --ignore client/ --ignore dist/ --ignore tests/",
     "test": "DATABASE_URL=postgres://localhost/grace_shopper_db_test jest ./tests/*.spec.js --watch --runInBand --verbose"
   },
   "keywords": [],

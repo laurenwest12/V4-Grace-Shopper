@@ -1,58 +1,61 @@
-html {
-  font-size: 62.5%; }
-
-body {
-  font-family: 'Didot';
-  padding-bottom: 5rem;
-  padding-top: 5rem;
-  background-color: white; }
-
 .standard-btn {
   color: white;
   background-color: black;
   border: 0.15rem solid black;
   margin: 2rem 0.5rem 4rem 0.5rem;
-  padding: 0.8rem; }
-  .standard-btn:hover {
+  padding: 0.8rem;
+
+  &:hover {
     cursor: pointer;
     background-color: white;
-    color: black; }
+    color: black;
+  }
+}
 
 .remove-btn {
   color: white;
-  background-color: #dc0000;
-  border: 0.15rem solid #dc0000;
+  background-color: rgb(220, 0, 0);
+  border: 0.15rem solid rgb(220, 0, 0);
   margin: 0.2rem 0.5rem 0.4rem 0.5rem;
-  padding: 0.8rem; }
-  .remove-btn:hover {
+  padding: 0.8rem;
+
+  &:hover {
     cursor: pointer;
     background-color: white;
-    color: #dc0000; }
+    color: rgb(220, 0, 0);
+  }
+}
 
 .admin-btn:hover {
   cursor: pointer;
-  background-color: #197735;
-  color: white; }
+  background-color: rgb(25, 119, 53);
+  color: white;
+}
 
 .edit-btn {
-  color: #008bdc;
+  color: rgb(0, 139, 220);
   background-color: white;
-  border: 0.15rem solid #008bdc;
+  border: 0.15rem solid rgb(0, 139, 220);
   margin-top: 0.2rem;
   margin-bottom: 0.4rem;
-  padding: 0.8rem; }
-  .edit-btn:hover {
+  padding: 0.8rem;
+
+  &:hover {
     cursor: pointer;
-    background-color: #008bdc;
-    color: white; }
+    background-color: rgb(0, 139, 220);
+    color: white;
+  }
+}
 
 .standard-btn-no-margin {
   color: black;
   background-color: white;
   border: 0.15rem solid black;
   margin-bottom: 0.4rem;
-  padding: 0.8rem; }
+  padding: 0.8rem;
+}
 
 .btn-link {
   padding-left: 0px;
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+}

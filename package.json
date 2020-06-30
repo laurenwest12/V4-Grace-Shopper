@@ -43,7 +43,7 @@
     "webpack-cli": "^3.3.1"
   },
   "scripts": {
-    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "watch:sass": "node-sass sass/main.scss public/style.css -w",
     "start": "node server",
     "postinstall": "npm run webpack",
     "webpack": "webpack",

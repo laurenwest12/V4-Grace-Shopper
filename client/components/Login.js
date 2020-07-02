@@ -121,55 +121,6 @@ class Login extends Component {
                 </Grid>
               </Grid>
             </form>
-
-            {/* <form onSubmit={(ev) => handleSubmit(ev, this.props.history)}>
-                <li className="list-group-item">
-                  <label>Email</label>
-                  <input
-                    className="form-control"
-                    name="email"
-                    value={email}
-                    placeholder="Enter your email address"
-                    onChange={handleChange}
-                  />
-                </li>
-
-                <li className="list-group-item">
-                  <label>Password</label>
-                  <input
-                    className="form-control"
-                    name="password"
-                    value={password}
-                    placeholder="Enter your password"
-                    type="password"
-                    onChange={handleChange}
-                  />
-                </li>
-
-                {error &&
-                  (Array.isArray(error) ? (
-                    <ul>
-                      {error.map((e, idx) => (
-                        <li key={idx}>{e}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <div>{error[0]}</div>
-                  ))}
-
-                <div className="login-buttons">
-                  <button type="submit" className="standard-btn">
-                    Log in
-                  </button>
-                  <button
-                    type="button"
-                    className="standard-btn"
-                    onClick={() => history.push(`/signup`)}
-                  >
-                    Sign Up
-                  </button>
-                </div>
-              </form> */}
           </div>
         </Grid>
       </Grid>

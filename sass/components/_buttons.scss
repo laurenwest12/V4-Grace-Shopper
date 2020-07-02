@@ -1,14 +1,32 @@
-.standard-btn {
+.primary-btn {
+  font-size: 2rem;
   color: white;
   background-color: black;
   border: 0.15rem solid black;
   margin: 2rem 0.5rem 4rem 0.5rem;
   padding: 0.8rem;
+  text-transform: uppercase;
+  width: 25rem;
 
   &:hover {
     cursor: pointer;
-    background-color: white;
-    color: black;
+    transform: scale(1.1);
+  }
+}
+
+.secondary-btn {
+  font-size: 2rem;
+  color: black;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0.15rem solid black;
+  margin: 2rem 0.5rem 4rem 0.5rem;
+  padding: 0.8rem;
+  text-transform: uppercase;
+  width: 25rem;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
   }
 }
 

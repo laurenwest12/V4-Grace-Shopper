@@ -1,0 +1,44 @@
+.home {
+  position: absolute;
+
+  &-image {
+    height: 80vh;
+    width: 100vw;
+    background-image: url('https://images.unsplash.com/photo-1529511582893-2d7e684dd128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+
+    &-content {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      color: white;
+      font-size: 3rem;
+      font-weight: 500;
+    }
+  }
+
+  &-about {
+    &-image {
+      object-fit: cover;
+      width: 100%;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      padding: 3rem;
+      align-items: center;
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

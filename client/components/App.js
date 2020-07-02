@@ -62,7 +62,7 @@ class App extends Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/checkoutlogin" component={CheckoutLogin} />
         </Switch>
-        <Route component={Footer} />
+        <Footer />
       </Router>
     );
   }

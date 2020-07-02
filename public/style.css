@@ -3,7 +3,7 @@ html {
 
 body {
   padding-bottom: 5rem;
-  padding-top: 5rem;
+  padding-top: 7rem;
   background-color: white; }
 
 .standard-btn {
@@ -55,6 +55,15 @@ body {
 .btn-link {
   padding-left: 0px;
   font-size: 1.8rem; }
+
+.nav__link {
+  position: relative;
+  text-decoration: none;
+  color: black; }
+  .nav__link__text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
 
 .login {
   height: 100vh; }

@@ -1,22 +1,22 @@
-import React, { Component } from 'react'
-import { HashRouter as Router, Switch, Route } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { checkForUserThunk } from '../redux/actions/login'
-import { getAllUsersThunk } from '../redux/actions/users'
-import { getAllReviewsThunk } from '../redux/actions/reviews'
-import { getAllProductsThunk } from '../redux/actions/product'
-import { getAllCategoriesThunk } from '../redux/actions/category'
-import Home from './Home'
-import Nav from './Nav'
-import Login from './Login'
-import Products from './Products'
-import SingleProduct from './SingleProduct'
-import Cart from './Cart'
-import SingleUser from './SingleUser'
-import CheckoutPage from './CheckoutPage'
-import Footer from './Footer'
-import SignUp from './SignUp'
-import CheckoutLogin from './CheckoutLogin'
+import React, { Component } from 'react';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { checkForUserThunk } from '../redux/actions/login';
+import { getAllUsersThunk } from '../redux/actions/users';
+import { getAllReviewsThunk } from '../redux/actions/reviews';
+import { getAllProductsThunk } from '../redux/actions/product';
+import { getAllCategoriesThunk } from '../redux/actions/category';
+import Home from './Home';
+import Nav from './Nav';
+import Login from './Login';
+import Products from './Products';
+import SingleProduct from './SingleProduct';
+import Cart from './Cart';
+import SingleUser from './SingleUser';
+import CheckoutPage from './CheckoutPage';
+import Footer from './Footer';
+import SignUp from './SignUp';
+import CheckoutLogin from './CheckoutLogin';
 
 class App extends Component {
   componentDidMount() {
@@ -25,15 +25,15 @@ class App extends Component {
       getAllProducts,
       getAllReviews,
       getAllUsers,
-      checkForUser
-    } = this.props
+      checkForUser,
+    } = this.props;
     return Promise.all([
       getAllCategories(),
       getAllProducts(),
       getAllUsers(),
       getAllReviews(),
-      checkForUser()
-    ])
+      checkForUser(),
+    ]);
   }
 
   render() {
@@ -64,21 +64,18 @@ class App extends Component {
         </Switch>
         <Route component={Footer} />
       </Router>
-    )
+    );
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getAllProducts: () => dispatch(getAllProductsThunk()),
     getAllCategories: () => dispatch(getAllCategoriesThunk()),
     getAllReviews: () => dispatch(getAllReviewsThunk()),
     getAllUsers: () => dispatch(getAllUsersThunk()),
-    checkForUser: () => dispatch(checkForUserThunk())
-  }
-}
+    checkForUser: () => dispatch(checkForUserThunk()),
+  };
+};
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(App)
+export default connect(null, mapDispatchToProps)(App);

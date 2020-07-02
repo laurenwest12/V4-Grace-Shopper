@@ -1,0 +1,13 @@
+.nav {
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: black;
+
+    &__text {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

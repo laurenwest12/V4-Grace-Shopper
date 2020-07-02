@@ -19,6 +19,7 @@
   }
 
   &-about {
+    padding-top: 1rem;
     &-image {
       object-fit: cover;
       width: 100%;
@@ -37,6 +38,48 @@
       p {
         font-size: 1.3rem;
       }
+    }
+  }
+
+  &-products {
+    padding-top: 1rem;
+    display: flex;
+
+    &-container {
+      position: relative;
+      height: 40rem;
+      width: 33%;
+      object-fit: cover;
+    }
+
+    :nth-child(2) {
+      padding: (0 1rem);
+    }
+
+    &-image {
+      height: 40rem;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    &-text {
+      display: none;
+      position: absolute;
+      font-size: 2.2rem;
+      font-weight: 500;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &-container:hover &-text,
+    &-text:hover {
+      display: inline-block;
+    }
+
+    &-container:hover &-image {
+      opacity: 0.5;
     }
   }
 }

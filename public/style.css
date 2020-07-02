@@ -106,19 +106,48 @@ body {
     font-size: 3rem;
     font-weight: 500; }
 
-.home-about-image {
-  object-fit: cover;
-  width: 100%; }
+.home-about {
+  padding-top: 1rem; }
+  .home-about-image {
+    object-fit: cover;
+    width: 100%; }
+  .home-about-text {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    align-items: center; }
+    .home-about-text h3 {
+      font-size: 3rem; }
+    .home-about-text p {
+      font-size: 1.3rem; }
 
-.home-about-text {
-  display: flex;
-  flex-direction: column;
-  padding: 3rem;
-  align-items: center; }
-  .home-about-text h3 {
-    font-size: 3rem; }
-  .home-about-text p {
-    font-size: 1.3rem; }
+.home-products {
+  padding-top: 1rem;
+  display: flex; }
+  .home-products-container {
+    position: relative;
+    height: 40rem;
+    width: 33%;
+    object-fit: cover; }
+  .home-products :nth-child(2) {
+    padding: 0 1rem; }
+  .home-products-image {
+    height: 40rem;
+    width: 100%;
+    object-fit: cover; }
+  .home-products-text {
+    display: none;
+    position: absolute;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .home-products-container:hover .home-products-text, .home-products-text:hover {
+    display: inline-block; }
+  .home-products-container:hover .home-products-image {
+    opacity: 0.5; }
 
 .login {
   height: 100vh; }

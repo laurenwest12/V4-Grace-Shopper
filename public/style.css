@@ -113,13 +113,13 @@ body {
 
 .login {
   height: 100vh; }
-  .login__form {
+  .login-form {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%; }
-    .login__form__header {
+    .login-form-header {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -127,16 +127,16 @@ body {
       height: 10rem;
       font-size: 1rem;
       margin-top: 5rem; }
-      .login__form__header img {
+      .login-form-header img {
         height: 6rem; }
-  .login__submit {
+  .login-submit {
     display: flex;
     flex-direction: row;
     justify-content: center; }
-    .login__submit__button {
+    .login-submit-button {
       margin: 1rem;
       width: 20rem; }
-  .login__image {
+  .login-image {
     background-image: url("https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
     background-repeat: no-repeat;
     background-size: cover;

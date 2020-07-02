@@ -36,17 +36,17 @@ class Login extends Component {
     return (
       <Grid className="login" container component="main">
         <CssBaseline />
-        <Grid item xs={false} sm={4} md={7} className="login__image" />
+        <Grid item xs={false} sm={4} md={7} className="login-image" />
 
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <div className="login__form">
-            <div className="login__form__header">
+          <div className="login-form">
+            <div className="login-form-header">
               <img src="https://image.flaticon.com/icons/svg/1689/1689081.svg" />{' '}
               <h1>Log in to Versioning 4</h1>
               <br />
             </div>
             <form
-              className="login__form"
+              className="login-form"
               onSubmit={(ev) => handleSubmit(ev, this.props.history)}
               noValidate
             >
@@ -88,9 +88,9 @@ class Login extends Component {
                 ) : (
                   <div>{error[0]}</div>
                 ))}
-              <Grid container className="login__submit">
+              <Grid container className="login-submit">
                 <Grid item>
-                  <div className="login__submit__button">
+                  <div className="login-submit-button">
                     <Button
                       type="submit"
                       fullWidth
@@ -105,7 +105,7 @@ class Login extends Component {
                 </Grid>
 
                 <Grid item>
-                  <div className="login__submit__button">
+                  <div className="login-submit-button">
                     <Button
                       type="button"
                       fullWidth

@@ -31,7 +31,7 @@ body {
   width: 25rem; }
   .secondary-btn:hover {
     cursor: pointer;
-    transform: scale(1.1); }
+    border: 0.3rem solid black; }
 
 .remove-btn {
   color: white;
@@ -179,3 +179,22 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; }
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center; }
+  .products-item {
+    padding: 2rem; }
+    .products-item-image {
+      height: 25rem;
+      width: 25rem;
+      object-fit: cover; }
+    .products-item-info {
+      padding-top: 1rem; }
+    .products-item-name {
+      font-size: 1.5rem; }
+    .products-item-price {
+      font-size: 1.8rem;
+      font-weight: 500; }

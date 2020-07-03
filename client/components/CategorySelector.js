@@ -1,53 +1,54 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class CategorySelector extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      categorySelected: ''
-    }
+      categorySelected: '',
+    };
   }
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value }, () =>
-      this.goToCategoryRoute()
-    )
-  }
+    console.log(target);
+    if (target.value === 0) {
+      this.setState({ categorySelected: '' }, () => this.goToCategoryRoute());
+    } else {
+      this.setState({ categorySelected: target.value }, () =>
+        this.goToCategoryRoute()
+      );
+    }
+  };
 
   goToCategoryRoute = () => {
-    const { categorySelected } = this.state
+    const { categorySelected } = this.state;
     const routeToGoTo = `/products${
       categorySelected === '' ? '' : `/category/${categorySelected}`
-    }`
-    this.props.history.push(routeToGoTo)
-  }
+    }`;
+    this.props.history.push(routeToGoTo);
+    console.log(routeToGoTo);
+  };
 
   render() {
     return (
       <div>
-        <select
-          value={this.state.categorySelected}
-          onChange={this.handleChange}
-          name="categorySelected"
-          className="standard-btn"
-        >
-          {this.props.categories.map(category => {
-            const { id, name } = category
+        <ul className="selector-list">
+          {this.props.categories.map((category) => {
+            const { id, name } = category;
             return (
-              <option key={id} value={id}>
-                {name}
-              </option>
-            )
+              <li key={id} value={id} onClick={this.handleChange}>
+                {name ? name : 'All'}
+              </li>
+            );
           })}
-        </select>
+        </ul>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = ({ categories }) => ({
-  categories: [{ id: '', name: 'All' }, ...categories]
-})
+  categories: [{ id: '', name: 'All' }, ...categories],
+});
 
-export default connect(mapStateToProps)(CategorySelector)
+export default connect(mapStateToProps)(CategorySelector);

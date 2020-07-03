@@ -1,0 +1,29 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+
+  &-item {
+    padding: 2rem;
+
+    &-image {
+      height: 25rem;
+      width: 25rem;
+      object-fit: cover;
+    }
+
+    &-info {
+      padding-top: 1rem;
+    }
+
+    &-name {
+      font-size: 1.5rem;
+    }
+
+    &-price {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  }
+}

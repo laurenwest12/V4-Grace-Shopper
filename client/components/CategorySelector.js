@@ -10,7 +10,6 @@ class CategorySelector extends Component {
   }
 
   handleChange = ({ target }) => {
-    console.log(target);
     if (target.value === 0) {
       this.setState({ categorySelected: '' }, () => this.goToCategoryRoute());
     } else {
@@ -26,17 +25,22 @@ class CategorySelector extends Component {
       categorySelected === '' ? '' : `/category/${categorySelected}`
     }`;
     this.props.history.push(routeToGoTo);
-    console.log(routeToGoTo);
   };
 
   render() {
     return (
       <div>
         <ul className="selector-list">
+          <h2>Products</h2>
           {this.props.categories.map((category) => {
             const { id, name } = category;
             return (
-              <li key={id} value={id} onClick={this.handleChange}>
+              <li
+                key={id}
+                value={id}
+                onClick={this.handleChange}
+                className="selector-list-item"
+              >
                 {name ? name : 'All'}
               </li>
             );

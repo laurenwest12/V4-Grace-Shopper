@@ -1,7 +1,20 @@
+.products-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.category-selector {
+  padding: 2rem;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
 .products {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   text-align: center;
 
   &-item {

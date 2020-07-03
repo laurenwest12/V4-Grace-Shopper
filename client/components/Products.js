@@ -10,32 +10,32 @@ class Products extends Component {
     const { products, history, categoryName } = this.props;
     console.log(history);
     return (
-      <div className="products">
-        <CategorySelector history={history} />
-
-        {products.map((product) => {
-          const { id, name, price, image } = product;
-          return (
-            <div className="products-item" key={id}>
-              <img className="products-item-image" src={image} alt={name} />
-              <div className="products-item-info">
-                <div className="products-item-name">{name}</div>
-                <div className="products-item-price">
-                  {makePriceCurrencyFormat(price)}
+      <div className="products-container">
+        <div className="category-selector">
+          <CategorySelector history={history} />
+        </div>
+        <div className="products">
+          {products.map((product) => {
+            const { id, name, price, image } = product;
+            return (
+              <Link
+                to={`/products/${id}`}
+                key={id}
+                style={{ textDecoration: 'none', color: 'black' }}
+              >
+                <div className="products-item">
+                  <img className="products-item-image" src={image} alt={name} />
+                  <div className="products-item-info">
+                    <div className="products-item-name">{name}</div>
+                    <div className="products-item-price">
+                      {makePriceCurrencyFormat(price)}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            // <li key={id} className="products-li">
-            //   <img src={image} />
-            //   <br />
-            //   <Link to={`/products/${id}`}>{name}</Link>
-            //   <br />
-            //   {makePriceCurrencyFormat(price)}
-            //   <br />
-            //   <AddToCartButton product={product} />
-            // </li>
-          );
-        })}
+              </Link>
+            );
+          })}
+        </div>
       </div>
       // <div className="product-list">
       //   <CategorySelector history={history} />

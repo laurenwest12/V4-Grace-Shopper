@@ -72,6 +72,13 @@ body {
   padding-left: 0px;
   font-size: 1.8rem; }
 
+.selector-list {
+  list-style: none;
+  text-align: left; }
+  .selector-list-item:hover {
+    cursor: pointer;
+    font-weight: 500; }
+
 .footer {
   height: 3rem;
   font-size: 1.4rem;
@@ -180,10 +187,21 @@ body {
     background-size: cover;
     background-position: center; }
 
+.products-container {
+  display: flex;
+  flex-direction: row; }
+
+.category-selector {
+  padding: 2rem;
+  font-size: 1.5rem;
+  text-align: left; }
+
 .products {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   text-align: center; }
   .products-item {
     padding: 2rem; }

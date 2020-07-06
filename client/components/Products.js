@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { makePriceCurrencyFormat } from '../HelperFunctions';
 import CategorySelector from './CategorySelector';
-import AddToCartButton from './addToCartButton';
 
 class Products extends Component {
   render() {
-    const { products, history, categoryName } = this.props;
-    console.log(history);
+    const { products, history } = this.props;
     return (
       <div className="products-container">
         <div className="category-selector">
@@ -37,30 +35,6 @@ class Products extends Component {
           })}
         </div>
       </div>
-      // <div className="product-list">
-      //   <CategorySelector history={history} />
-
-      //   <h4>{`${categoryName} Products`}</h4>
-
-      //   <div className="container">
-      //     <ul id="flex-container">
-      //       {products.map((product) => {
-      //         const { id, name, price, image } = product;
-      //         return (
-      //           <li key={id} className="products-li">
-      //             <img src={image} />
-      //             <br />
-      //             <Link to={`/products/${id}`}>{name}</Link>
-      //             <br />
-      //             {makePriceCurrencyFormat(price)}
-      //             <br />
-      //             <AddToCartButton product={product} />
-      //           </li>
-      //         );
-      //       })}
-      //     </ul>
-      //   </div>
-      // </div>
     );
   }
 }

@@ -28,6 +28,13 @@ class CategorySelector extends Component {
   };
 
   render() {
+    const font = (selected) => {
+      if (selected === this.state.categorySelected) {
+        return '500';
+      } else {
+        return '400';
+      }
+    };
     return (
       <div>
         <ul className="selector-list">
@@ -40,6 +47,7 @@ class CategorySelector extends Component {
                 value={id}
                 onClick={this.handleChange}
                 className="selector-list-item"
+                style={{ fontWeight: font(id) }}
               >
                 {name ? name : 'All'}
               </li>

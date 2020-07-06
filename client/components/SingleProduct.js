@@ -1,60 +1,115 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { makePriceCurrencyFormat, findUserNameById } from '../HelperFunctions'
-import AddToCartButton from './addToCartButton'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { makePriceCurrencyFormat, findUserNameById } from '../HelperFunctions';
+import AddToCartButton from './addToCartButton';
 
-const SingleProduct = props => {
-  const { description, name, price, image } = props.product
-  const { reviews, users } = props
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+
+const findStars = (rating) => {
+  const stars = [];
+  for (let i = 0; i < rating; ++i) {
+    stars.push(<StarIcon fontSize="large" />);
+  }
+
+  for (let i = stars.length; i < 5; ++i) {
+    stars.push(<StarBorderIcon fontSize="large" />);
+  }
+  return stars;
+};
+
+const SingleProduct = (props) => {
+  const { description, name, price, image } = props.product;
+  const { reviews, users } = props;
   return (
-    <div className="single-product">
-      <div className="single-product-card">
-        <div>
-          <img src={image} className="single-product-img" />
+    <div>
+      <div className="product">
+        <div className="product-image-container">
+          <img src={image} className="product-image" />
         </div>
-        <ul>
-          <h3>{name}</h3>
-          <li>{makePriceCurrencyFormat(price)}</li>
-          <li>{description}</li>
-        </ul>
+        <div className="product-info">
+          <div className="product-name">{name}</div>
+          <div className="product-price">{makePriceCurrencyFormat(price)}</div>
+          <div className="product-description">{description}</div>
+          <div className="product-button">
+            <AddToCartButton product={props.product} />
+          </div>
+        </div>
       </div>
-      <ul className="reviews-card">
-        <h3>Reviews</h3>
+      <div className="product-reviews">
+        <div className="product-reviews-header">Customer Reviews</div>
         {reviews.length ? (
           users.length &&
-          reviews.map(review => (
-            <ul key={review.id}>
-              <h5> {review.title}</h5>
-              <li> {review.rating} / 5 stars</li>
-              <li>
-                by{' '}
-                <Link to={`/users/${review.userId}`}>
-                  {' '}
-                  {findUserNameById(review.userId, users)}
-                </Link>
-              </li>
-              <li>{review.content}</li>
-            </ul>
+          reviews.map((review) => (
+            <div className="product-reviews-container" key={review.id}>
+              <div className="product-reviews-lead">
+                <div className="product-reviews-title"> {review.title}</div>
+                <div className="product-reviews-stars">
+                  {findStars(review.rating).map((star) => star)}
+                </div>
+                <div className="product-reviews-author">
+                  by {findUserNameById(review.userId, users)}
+                </div>
+              </div>
+              <div className="product-reviews-content">{review.content}</div>
+            </div>
           ))
         ) : (
-          <div>No reviews</div>
+          <div className="product-reviews-container">
+            <div className="product-reviews-content">No reviews</div>
+          </div>
         )}
-      </ul>
-      <AddToCartButton product={props.product} />
+      </div>
     </div>
-  )
-}
+    // <div className="single-product">
+    //   <div className="single-product-card">
+    //     <div>
+    //       <img src={image} className="single-product-img" />
+    //     </div>
+    //     <ul>
+    //       <h3>{name}</h3>
+    //       <li>{makePriceCurrencyFormat(price)}</li>
+    //       <li>{description}</li>
+    //     </ul>
+    //   </div>
+    //   <ul className="reviews-card">
+    //     <h3>Reviews</h3>
+    //     {reviews.length ? (
+    //       users.length &&
+    //       reviews.map(review => (
+    //         <ul key={review.id}>
+    //           <h5> {review.title}</h5>
+    //           <li> {review.rating} / 5 stars</li>
+    //           <li>
+    //             by{' '}
+    //             <Link to={`/users/${review.userId}`}>
+    //               {' '}
+    //               {findUserNameById(review.userId, users)}
+    //             </Link>
+    //           </li>
+    //           <li>{review.content}</li>
+    //         </ul>
+    //       ))
+    //     ) : (
+    //       <div>No reviews</div>
+    //     )}
+    //   </ul>
+    //   <AddToCartButton product={props.product} />
+    // </div>
+  );
+};
 
 const mapStateToProps = (
   { products, reviews, users },
   { match: { params } }
 ) => {
   return {
-    product: products.length && products.find(p => p.id === Number(params.id)),
-    reviews: reviews.filter(review => review.productId === Number(params.id)),
-    users
-  }
-}
+    product:
+      products.length && products.find((p) => p.id === Number(params.id)),
+    reviews: reviews.filter((review) => review.productId === Number(params.id)),
+    users,
+  };
+};
 
-export default connect(mapStateToProps)(SingleProduct)
+export default connect(mapStateToProps)(SingleProduct);

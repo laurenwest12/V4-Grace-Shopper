@@ -5,17 +5,34 @@ import { Grid } from '@material-ui/core';
 
 class Home extends Component {
   render() {
-    const { products } = this.props;
+    const {
+      products,
+      loggedInUser,
+      location: { pathname },
+    } = this.props;
+    const usersMatch =
+      !pathname.includes('myaccount') ||
+      loggedInUser.id === Number(/[0-9]+/.exec(pathname)[0]);
+    const showLoggedIn = loggedInUser.id && usersMatch;
+
     return (
       <div className="home">
         <div className="home-image">
           <div className="home-image-content">
             <h1>We're experts in our field</h1>
-            <Link to="/login">
-              <button type="button" className="primary-btn">
-                Sign In
-              </button>
-            </Link>
+            {showLoggedIn ? (
+              <Link to={`/users/${loggedInUser.id}/myaccount`}>
+                <button type="button" className="primary-btn">
+                  My Account
+                </button>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <button type="button" className="primary-btn">
+                  Sign In
+                </button>
+              </Link>
+            )}
           </div>
         </div>
 
@@ -86,9 +103,10 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = ({ products }) => {
+const mapStateToProps = ({ products, loggedInUser }) => {
   return {
     products: products.filter((item, index) => index <= 2),
+    loggedInUser,
   };
 };
 

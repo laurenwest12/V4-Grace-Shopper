@@ -29,7 +29,7 @@ class AddToCartButton extends Component {
         </button>
         {productInCart && (
           <small className="item-in-cart-text">
-            Item already in cart. Go to <Link to="/cart">cart</Link> to change
+            Item added to cart. Go to <Link to="/cart">cart</Link> to change
             quantity
           </small>
         )}

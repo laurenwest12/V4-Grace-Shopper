@@ -62,41 +62,6 @@ const SingleProduct = (props) => {
         )}
       </div>
     </div>
-    // <div className="single-product">
-    //   <div className="single-product-card">
-    //     <div>
-    //       <img src={image} className="single-product-img" />
-    //     </div>
-    //     <ul>
-    //       <h3>{name}</h3>
-    //       <li>{makePriceCurrencyFormat(price)}</li>
-    //       <li>{description}</li>
-    //     </ul>
-    //   </div>
-    //   <ul className="reviews-card">
-    //     <h3>Reviews</h3>
-    //     {reviews.length ? (
-    //       users.length &&
-    //       reviews.map(review => (
-    //         <ul key={review.id}>
-    //           <h5> {review.title}</h5>
-    //           <li> {review.rating} / 5 stars</li>
-    //           <li>
-    //             by{' '}
-    //             <Link to={`/users/${review.userId}`}>
-    //               {' '}
-    //               {findUserNameById(review.userId, users)}
-    //             </Link>
-    //           </li>
-    //           <li>{review.content}</li>
-    //         </ul>
-    //       ))
-    //     ) : (
-    //       <div>No reviews</div>
-    //     )}
-    //   </ul>
-    //   <AddToCartButton product={props.product} />
-    // </div>
   );
 };
 

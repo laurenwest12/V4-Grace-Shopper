@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { removeAllItemsFromCartThunk } from '../redux/actions/cart';
 import { checkoutAsUserThunk } from '../redux/actions/shared';
 import { makePriceCurrencyFormat } from '../HelperFunctions';
@@ -18,18 +20,33 @@ class Cart extends Component {
       checkoutAsUser,
     } = this.props;
     return (
-      <div className="cart">
-        <table>
-          <tr>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-          {cart.map((item) => (
-            <SingleCartItem cartItem={item} key={item.id} history={history} />
-          ))}
-        </table>
+      <div>
+        {cart.length ? (
+          <table className="cart">
+            <tr className="cart-header">
+              <th>Product</th>
+              <th />
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Remove</th>
+            </tr>
+            <div className="cart-padding" />
+
+            {cart.map((item) => (
+              <SingleCartItem cartItem={item} key={item.id} history={history} />
+            ))}
+          </table>
+        ) : (
+          <div className="cart-empty">
+            <div className="cart-empty-header">Your Cart</div>
+            <div className="cart-empty-body">Cart is currently empty.</div>
+            <Link to="/products">
+              <button type="button" className="primary-btn">
+                Continue Shopping
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
       // <div className="cart-list">
       //   <ul className="list-group list-group-flush">

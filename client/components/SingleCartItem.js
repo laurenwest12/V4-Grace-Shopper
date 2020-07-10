@@ -10,24 +10,32 @@ class SingleCartItem extends Component {
     const { cartItem, userId, orderId, removeFromCart, history } = this.props;
     const { id, name, productId, totalItemPrice, image } = cartItem;
     return (
-      <tr>
-        <td>
+      <tr className="cart-row">
+        <td className="cart-cell">
           <img
             src={image}
-            className="cart-item-image"
+            className="cart-image"
             onClick={() => history.push(`/products/${productId}`)}
           />
         </td>
-        <td>
-          <Link to={`/products/${productId}`} className="col-sm-6">
+        <td className="cart-product">
+          <Link to={`/products/${productId}`} className="cart-name">
             {name}
           </Link>
         </td>
-        <td>
-          <CartQuantitySelector userId={userId} cartItem={cartItem} />
+        <td className="cart-cell">
+          <CartQuantitySelector
+            userId={userId}
+            cartItem={cartItem}
+            className="cart-quantity"
+          />
         </td>
-        <td>{makePriceCurrencyFormat(totalItemPrice)}</td>
-        <td>
+        <td className="cart-cell">
+          <div className="cart-price">
+            {makePriceCurrencyFormat(totalItemPrice)}
+          </div>
+        </td>
+        <td className="cart-cell">
           <button
             type="button"
             className="remove-btn"

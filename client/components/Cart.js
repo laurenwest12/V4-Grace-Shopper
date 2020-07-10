@@ -22,20 +22,55 @@ class Cart extends Component {
     return (
       <div>
         {cart.length ? (
-          <table className="cart">
-            <tr className="cart-header">
-              <th>Product</th>
-              <th />
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Remove</th>
-            </tr>
-            <div className="cart-padding" />
+          <div>
+            <table className="cart">
+              <tr className="cart-header">
+                <th>Product</th>
+                <th />
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Remove</th>
+              </tr>
+              <div className="cart-padding" />
 
-            {cart.map((item) => (
-              <SingleCartItem cartItem={item} key={item.id} history={history} />
-            ))}
-          </table>
+              {cart.map((item) => (
+                <SingleCartItem
+                  cartItem={item}
+                  key={item.id}
+                  history={history}
+                />
+              ))}
+            </table>
+
+            <div className="cart-summary">
+              {/* {makePriceCurrencyFormat(totalCartPrice)}
+              <div className="d-flex justify-content-between">
+                <button
+                  type="button"
+                  className="remove-btn"
+                  onClick={() =>
+                    removeAllItemsFromCart(user.id, currentOrder.id)
+                  }
+                >
+                  Clear Cart
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    checkoutAsUser(user, currentOrder, cart, products, history)
+                  }
+                  className="primary-btn"
+                  disabled={
+                    cart.length === 0 ||
+                    cart.some((item) => item.canNotBeCheckedOut)
+                  }
+                >
+                  Checkout
+                </button>
+              </div> */}
+            </div>
+          </div>
         ) : (
           <div className="cart-empty">
             <div className="cart-empty-header">Your Cart</div>
